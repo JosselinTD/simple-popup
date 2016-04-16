@@ -1,0 +1,14 @@
+{
+  "name": "simple-popup",
+  "version": "1.0.0",
+  "description": "A very simple popup system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "modal"
+  ],
+  "author": "Josselin TILLAY-DOLEDEC <josselin.td@gmail.com> (http://www.josselin-td.fr)",
+  "license": "ISC"
+}
