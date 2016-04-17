@@ -1,38 +1,40 @@
 function setModal(clickableCssSelector, toOpenInClickableCssSelector, toCloseInClickableCssSelector) {
-	console.log('Hey !');
 	var clickable = document.querySelectorAll(clickableCssSelector),
+		toOpen = document.querySelectorAll(toOpenInClickableCssSelector),
+		closeButton = document.querySelectorAll(toCloseInClickableCssSelector),
 		i = 0,
 		clickableLength = clickable.length;
 
 	for (i = 0; i < clickableLength; i++) {
-		console.log('Ho !');
 		var clickableElement = clickable[i];
+		var toOpenElement = toOpen[i];
+		var closeButtonElement = closeButton[i];
 
-		clickableElement
-			.onclick = function(event) {
-				console.log('Youhou !');
-				clickableElement
-					.querySelector(toOpenInClickableCssSelector)
-					.classList
-					.add('simple-popup-opened');
-				document
-					.querySelector('body')
-					.classList
-					.add('opacified');
-			}
-
-		clickableElement
-			.querySelector(toCloseInClickableCssSelector)
-			.onclick = function(event) {
-				event.stopPropagation();
-				clickableElement
-					.querySelector(toOpenInClickableCssSelector)
-					.classList
-					.remove('simple-popup-opened');
-				document
-					.querySelector('body')
-					.classList
-					.remove('opacified');
-			}
+		doIt(clickableElement, toOpenElement, closeButtonElement);
 	}
+}
+
+function doIt(clickableElement, toOpenElement, closeButtonElement) {
+	clickableElement
+		.onclick = function(event) {
+			toOpenElement
+				.classList
+				.add('simple-popup-opened');
+			document
+				.querySelector('body')
+				.classList
+				.add('opacified');
+		}
+
+	closeButtonElement
+		.onclick = function(event) {
+			event.stopPropagation();
+			toOpenElement
+				.classList
+				.remove('simple-popup-opened');
+			document
+				.querySelector('body')
+				.classList
+				.remove('opacified');
+		}
 }
